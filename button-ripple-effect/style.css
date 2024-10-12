@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* 引入字体，设置布局为border-box */
+* {
+  box-sizing: border-box;
+}
+/* 设置body的样式，主要是设置弹性容器居中显示按钮 */
+body {
+  background-color: #000;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 按钮的样式 */
+button {
+  /* 背景色和文本白色 */
+  background-color: purple;
+  color: #fff;
+  /* 边框 */
+  border: 1px purple solid;
+  /* 字号 */
+  font-size: 14px;
+  /* 文本大写 */
+  text-transform: uppercase;
+  /* 字母间距 */
+  letter-spacing: 2px;
+  /* 内边距 */
+  padding: 20px 30px;
+  overflow: hidden;
+  margin: 10px 0;
+  /* 相对定位，父相对子绝对 */
+  position: relative;
+}
+/* 点击聚焦时无轮廓线 */
+button:focus {
+  outline: none;
+}
+/* 按钮的波浪圈圈 */
+button .circle {
+  /* 绝对定位 */
+  position: absolute;
+  /* 背景色 */
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  /* 圆角50%，就成了圆圈波浪 */
+  border-radius: 50%;
+  /* transform 属性用于对元素进行变换操作 */
+  /* translate(-50%, -50%) 将元素向左和向上移动自身宽度和高度的50%，将元素定位在其包含块的中心位置*/
+  /* scale(0) 将元素的宽度和高度缩放到0，即缩小到不可见 */
+  transform: translate(-50%, -50%) scale(0);
+  /* 调用名为scale的@keyframes规则，0.5s淡出效果*/
+  animation: scale 0.5s ease-out;
+}
+/* scale动画 */
+/* 移动元素使其中心位于包含块的中心位置，将元素放大到原来的三倍大小，同时将其透明度设置为完全透明，呈现波浪效果*/
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
+/* 定义了两个变量：--border-color 和 --fill-color，并分别为它们设置了颜色值 */
+/* 这里:root CSS伪类匹配文档树的根元素，对于HTML来说:root表示<html>元素，除了优先级更高之外，与html选择器相同 */
+:root {
+  --border-color: #144fc6;
+  --fill-color: #6ab3f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+/* body的填充色和文字字体等 */
+body {
+  background-color: #3494e4;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+h1 {
+  margin: 10px 0 0;
+}
+
+h3 {
+  font-weight: 400;
+  margin: 10px 0;
+}
+/* 大杯子的样式，背景色，边框，填充色等 */
+.cup {
+  background-color: #fff;
+  border: 4px solid var(--border-color);
+  color: var(--border-color);
+  border-radius: 0 0 40px 40px;
+  height: 330px;
+  width: 150px;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* 小杯子的样式 */
+.cup.cup-small {
+  height: 95px;
+  width: 50px;
+  border-radius: 0 0 15px 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 5px;
+  transition: 0.3s ease;
+}
+/* 小杯子被填满时的样式，选择引用变量--fill-color改变填充色 */
+.cup.cup-small.full {
+  background-color: var(--fill-color);
+  color: #fff;
+}
+/* 设置一系列小杯子的布局为弹性盒子，居中 */
+.cups {
+  display: flex;
+  /* 允许Flex项换行 */
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+}
+/* 大杯子剩下的容器样式*/
+.remained {
+  /* 弹性盒子 */
+  display: flex;
+  /* 主轴方向为垂直方向（从上到下） */
+  flex-direction: column;
+  /* 水平和垂直居中 */
+  align-items: center;
+  justify-content: center;
+  /* 文本居中 */
+  text-align: center;
+  /* 简写设置Flex项的flex-grow，flex-shrink和flex-basis属性 */
+  /* flex:1意味着Flex项将有相等的flex-grow值1,允许它们在容器中有多余的空间时增长 */
+  /* lex-shrink值1允许它们在容器空间不足时缩小 */
+  /* flex-basis被设置为默认值0，项目的初始大小为0，根据内容的大小来确定其大小 */
+  flex: 1;
+  transition: 0.3s ease;
+}
+/* liters元素的样式 */
+.remained span {
+  font-size: 20px;
+  font-weight: bold;
+}
+/* Remained的样式 */
+.remained small {
+  font-size: 12px;
+}
+/* 百分比部分的样式 */
+.percentage {
+  /* 填充色 */
+  background-color: var(--fill-color);
+  /* 弹性盒子居中 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 30px;
+  height: 0;
+  transition: 0.3s ease;
+}
+/* p标签文本居中，外边距上、右、下、左分别为0、0、5、0  */
+.text {
+  text-align: center;
+  margin: 0 0 5px;
+}

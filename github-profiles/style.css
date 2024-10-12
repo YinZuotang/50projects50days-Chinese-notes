@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+/* 设置元素的盒模型 */
+* {
+  box-sizing: border-box;
+}
+/* body的背景、字体颜色、弹性盒子居中等 */
+body {
+  background-color: #2a2a72;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 搜索框所在的表单宽度、最大宽度 */
+.user-form {
+  width: 100%;
+  max-width: 700px;
+}
+/* 搜索框的样式 */
+.user-form input {
+  width: 100%;
+  /* 块级元素 */
+  display: block;
+  /* 背景色\无边框\圆角效果\字体颜色 */
+  background-color: #4c2885;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  /* 内边距和底部外边距,rem是相对单位，相对于根元素的字体大小,默认是1rem等于16px */
+  padding: 1rem;
+  margin-bottom: 2rem;
+  /* 字体,字号等 */
+  font-family: inherit;
+  font-size: 1rem;
+  /* 两个阴影效果,第一个水平偏移量为0，垂直偏移量为5像素，模糊半径为10像素。
+rgba(154, 160, 185, 0.05)表示阴影的颜色和透明度,第二个类似*/
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(0, 0, 0, 0.1);
+}
+/* 输入框占位符提示的颜色 */
+.user-form input::placeholder {
+  color: #bbb;
+}
+/* 鼠标在输入框聚焦时无外框 */
+.user-form input:focus {
+  outline: none;
+}
+/* 弹出的用户卡片的样式,由JS生成card  */
+.card {
+  /* 最大宽度\背景色\圆角效果\阴影效果\弹性盒子\内边距和外边距 */
+  max-width: 800px;
+  background-color: #4c2885;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  padding: 3rem;
+  margin: 0 1.5rem;
+}
+/* 用户头像的样式,圆角\边框\宽高 */
+.avatar {
+  border-radius: 50%;
+  border: 10px solid #2a2a72;
+  height: 150px;
+  width: 150px;
+}
+/* 用户信息,字体颜色\左侧外边距 */
+.user-info {
+  color: #eee;
+  margin-left: 2rem;
+}
+/* 用户信息的二级标题顶部无外边距 */
+.user-info h2 {
+  margin-top: 0;
+}
+/* 用户信息列表样式 */
+.user-info ul {
+  /* 列表无样式图标 */
+  list-style-type: none;
+  /* 弹性盒子 */
+  display: flex;
+  /* 子元素之间的空间均匀分布 */
+  justify-content: space-between;
+  padding: 0;
+  max-width: 400px;
+}
+/*li列表 弹性盒子居中 */
+.user-info ul li {
+  display: flex;
+  align-items: center;
+}
+/* 强调文本的字号\左侧外边距 */
+.user-info ul li strong {
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+/* repo样式,repo链接到该用户的项目库 */
+.repo {
+  /* 文本无修饰 */
+  text-decoration: none;
+  color: #fff;
+  background-color: #212a72;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  /* inline-block局部*/
+  display: inline-block;
+}
+/*媒体查询,屏幕宽度小于或等于500像素修改样式*/
+@media (max-width: 500px) {
+  .card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-form {
+    max-width: 400px;
+  }
+}

@@ -1,0 +1,22 @@
+/* 开始的角度是0 */
+:root {
+  --degrees: 0deg;
+}
+/*  */
+.bg-conic {
+  /*  conic-gradient 创建的圆锥形渐变背景 */
+  background: conic-gradient(
+    /* 渐变从透明开始，旋转到一个由变量 --degrees 定义的角度，然后变成白色，并继续旋转直到完成一个完整的圆（360度） */
+    transparent 0deg,
+    transparent var(--degrees),
+    white var(--degrees),
+    white 360deg
+  );
+}
+/* 表的指针 */
+.hand {
+  /* transform-origin属性设置为bottom center，任何变换都将围绕元素的底部中心点进行 */
+  transform-origin: bottom center;
+  /* 根据角度变量进行旋转 */
+  transform: rotate(var(--degrees));
+}

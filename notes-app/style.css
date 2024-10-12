@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+/* box-sizing设置为border-box样式，无轮廓线 */
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+/* body的背景色、字体、弹性盒子 */
+body {
+  background-color: #7bdaf3;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  /* 必要时进行换行 */
+  flex-wrap: wrap;
+  margin: 0;
+  padding-top: 3rem;
+}
+/* .add按钮 固定位置、距离顶部和右侧 16px、 背景色、字体颜色、无框线、圆角、内边距，鼠标指针效果 */
+.add {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: #9ec862;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+/* 按钮被激活时，缩小一点，用于动态的效果 */
+.add:active {
+  transform: scale(0.98);
+}
+/* 笔记部分的样式，背景色、阴影效果等 */
+.note {
+  background-color: #fff;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+  margin: 30px 20px;
+  height: 400px;
+  width: 400px;
+  /* 元素内容高度超过指定高度时，这个属性会显示垂直滚动条，允许用户滚动查看隐藏的内容 */
+  overflow-y: scroll;
+}
+/* 笔记工具栏背景色、弹性盒子、 */
+.note .tools {
+  background-color: #9ec862;
+  display: flex;
+  /* 子元素在尾部居中 */
+  justify-content: flex-end;
+  padding: 0.5rem;
+}
+/* 两个按钮的样式，背景色透明，无边框，白色字体，鼠标指针，字号，左侧外边距8px */
+.note .tools button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+/* 笔记的文本区域，无框线，字体、19.2px、无边框、高宽、内边距20px */
+.note textarea {
+  outline: none;
+  font-family: inherit;
+  font-size: 1.2rem;
+  border: none;
+  height: 400px;
+  width: 100%;
+  padding: 20px;
+}
+/* main的样式 */
+.main {
+  padding: 20px;
+}
+/* 隐藏时，display设置为不可见 */
+.hidden {
+  display: none;
+}

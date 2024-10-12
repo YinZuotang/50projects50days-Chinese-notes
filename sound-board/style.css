@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* body的背景色、字体、弹性盒子、 */
+body {
+  background-color: rgb(161, 100, 223);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  /* 子元素在必要时折行 */
+  flex-wrap: wrap;
+  /* 文本和内容居中 */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 按钮的背景色】圆角、无边框、白色字体、外边距和内边距、字体、字号 */
+.btn {
+  background-color: rebeccapurple;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  margin: 1rem;
+  padding: 1.5rem 3rem;
+  font-size: 1.2rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+/* 按钮悬停时可见度改变一下 */
+.btn:hover {
+  opacity: 0.9;
+}
+/* 聚焦时没有轮廓线 */
+.btn:focus {
+  outline: none;
+}

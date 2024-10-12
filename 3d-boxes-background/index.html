@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 使用font-awesome图标库，Font Awesome是一个图标字体和CSS框架，提供可缩放矢量图标 -->
+    <!-- rel="stylesheet"：指定这是样式表，href：指定样式表的URL-->
+    <!-- integrity：用于指定资源的完整性校验，确保加载的资源未被篡改 -->
+    <!-- crossorigin：指定资源是否允许跨域请求，anonymous表示请求不携带凭证 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>3D Boxes Background</title>
+  </head>
+  <body>
+    <!-- 定义按钮元素，用来触发事件，这里的元素内容使用了一个魔术帽的表情符号-->
+    <button id="btn" class="magic">Magic 🎩</button>
+    <!-- 添加容器，用来放置具体的内容,使用了两个类,boxes和big类-->
+    <div id="boxes" class="boxes big"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

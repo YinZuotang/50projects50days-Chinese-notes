@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+/* 为所有元素设置盒模型布局，并重置外边距和内边距 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* 设置页面的默认字体、颜色和底部内边距 */
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #222;
+  padding-bottom: 50px;
+}
+/* 设置容器的最大宽度和自动外边距以居中显示 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* 设置导航栏的固定位置、背景颜色和过渡效果 */
+.nav {
+  position: fixed;
+  background-color: #222;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+}
+/* 设置导航栏内部容器的布局和过渡效果 */
+.nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  transition: all 0.3s ease-in-out;
+}
+/* 设置导航栏列表的布局和居中效果等 */
+.nav ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
+}
+/* 设置导航栏链接的颜色等和过渡效果 */
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 7px 15px;
+  transition: all 0.3s ease-in-out;
+}
+/* 设置导航栏激活状态下的背景色等 */
+.nav.active {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+/* 设置导航栏激活状态下链接的字颜色 */
+.nav.active a {
+  color: #000;
+}
+/* 设置导航栏激活状态下内部容器的内边距 */
+.nav.active .container {
+  padding: 10px 0;
+}
+/* 设置导航栏当前链接和悬停状态下链接的样式 */
+.nav a.current,
+.nav a:hover {
+  color: #c0392b;
+  font-weight: bold;
+}
+/* 设置背景图像、尺寸、颜色和布局 */
+.hero {
+  background-image: url('https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  /* 背景不重复，铺满 */
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* 背景的位置底部居中 */
+  background-position: bottom center;
+  height: 100vh;
+  color: #fff;
+  /* 弹性盒子居中，文本居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* 作为父类相对定位 */
+  position: relative;
+  margin-bottom: 20px;
+  z-index: -2;
+}
+/* 设置覆盖层的样式，空的内容，绝对定位等 */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* 标题的字号，外边距 */
+.hero h1 {
+  font-size: 46px;
+  margin: -20px 0 20px;
+}
+/* p标签的字号，文本的间距 */
+.hero p {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+/* 设置内容区域标题的字号、外边距等 */
+.content h2,
+.content h3 {
+  font-size: 150%;
+  margin: 20px 0;
+}
+/* 设置内容区域段落的颜色、行高等 */
+.content p {
+  color: #555;
+  line-height: 30px;
+  letter-spacing: 1.2px;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 引入字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Netflix Mobile Navigation</title>
+</head>
+
+<body>
+  <!--导航栏按钮 -->
+  <button class="nav-btn open-btn">
+    <!-- 引入字体图标 -->
+    <i class="fas fa-bars"></i>
+  </button>
+<!-- logo图片路径 -->
+  <img
+    src="https://images.ctfassets.net/4cd45et68cgf/7LrExJ6PAj6MSIPkDyCO86/542b1dfabbf3959908f69be546879952/Netflix-Brand-Logo.png?w=684&h=456"
+    alt="Logo" class="logo">
+<!-- 定义P标签，移动端导航栏-->
+  <p class="text">Mobile Navigation</p>
+  <!-- 导航栏黑色块 -->
+  <div class="nav nav-black">
+    <!-- 红色块 -->
+    <div class="nav nav-red">
+      <!-- 白色块 -->
+      <div class="nav nav-white">
+        <!-- 关闭按钮 -->
+        <button class="nav-btn close-btn">
+          <!-- 字体图标 -->
+          <i class="fas fa-times"></i>
+        </button>
+        <!-- logo -->
+        <img
+          src="https://images.ctfassets.net/4cd45et68cgf/7LrExJ6PAj6MSIPkDyCO86/542b1dfabbf3959908f69be546879952/Netflix-Brand-Logo.png?w=684&h=456"
+          alt="Logo" class="logo">
+        <!-- 导航栏列表 -->
+        <ul class="list">
+          <li><a href="#">Teams</a></li>
+          <li><a href="#">Locations</a></li>
+          <li><a href="#">Life at Netflix</a></li>
+          <li>
+            <ul>
+              <li><a href="#">Netflix culture memo</a></li>
+              <li><a href="#">Work life balance</a></li>
+              <li><a href="#">Inclusion & diversity</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

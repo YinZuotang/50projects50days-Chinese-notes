@@ -1,0 +1,77 @@
+/* 这个案例完全使用CSS实现动态效果 */
+/* 通用选择器将 box-sizing: border-box应用到所有元素上。
+所有元素的宽度和高度包括内边距和边框*/
+* {
+  box-sizing: border-box;
+}
+/* 背景颜色为深蓝色，弹性盒子布局使其子元素在垂直和水平方向上居中。
+高度被设置为视口高度、隐藏溢出的内容 */
+body {
+  background-color: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* .kinetic元素设置相对定位，高度和宽度都设置为80px。 */
+.kinetic {
+  position: relative;
+  height: 80px;
+  width: 80px;
+}
+/* 使用伪元素在.kinetic元素上创建额外的装饰。相对父类绝对定位
+使用边框效果来创建一个三角形，这个三角形的颜色是白色 (#fff)。 */
+.kinetic::after,
+.kinetic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  /* 创建三角形 */
+  border: 50px solid transparent;
+  border-bottom-color: #fff;
+  /* 使用动画rotateA，持续2s,匀速变化，不断重复执行，在元素加载0.5s后执行*/
+  animation: rotateA 2s linear infinite 0.5s;
+}
+/* 伪元素:before，将三角形旋转90度后有了另外一个三角形，另外一个三角形使用动画B，持续2s,匀速变化，不断执行 */
+.kinetic::before {
+  transform: rotate(90deg);
+  animation: rotateB 2s linear infinite;
+}
+/* 两个动画都是转了360°，只是不同时间节点旋转的角度不同 */
+@keyframes rotateA {
+  /* 在动画的开始（0%）和25%时，元素的 transform 属性被设置为 rotate(0deg)，没有旋转 */
+  0%,
+  25% {
+    transform: rotate(0deg);
+  }
+  /* 在动画的一半（50%）和75%时，transform属性被设置为rotate(180deg)，元素旋转了180度 */
+  50%,
+  75% {
+    transform: rotate(180deg);
+  }
+  /* 在动画最后时，transform属性被设置为rotate(360deg)，元素旋转了360度  */
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* 动画B类似 */
+@keyframes rotateB {
+  0%,
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50%,
+  75% {
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(450deg);
+  }
+}

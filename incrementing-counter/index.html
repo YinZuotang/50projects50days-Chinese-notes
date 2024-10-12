@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Increment Counter</title>
+  </head>
+  <body>
+    <!-- 定义递增计数器容器 -->
+    <div class="counter-container">
+      <!-- 引入字体图标，推特的图标 -->
+      <i class="fab fa-twitter fa-3x"></i>
+      <!-- 定义一个容器，自定义了属性，存储一个目标值12000 -->
+      <div class="counter" data-target="12000"></div>
+      <!-- 文本提示，推特关注用户 -->
+      <span>Twitter Followers</span>
+    </div>
+    <!-- 另外两个容器相似 -->
+    <div class="counter-container">
+      <!-- 油管的图标  -->
+      <i class="fab fa-youtube fa-3x"></i>
+      <div class="counter" data-target="5000"></div>
+      <span>YouTube Subscribers</span>
+    </div>
+
+    <div class="counter-container">
+      <!--脸书的图标  -->
+      <i class="fab fa-facebook fa-3x"></i>
+      <div class="counter" data-target="7500"></div>
+      <span>Facebook Fans</span>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+/* 引入字体，设置布局为border-box */
+* {
+  box-sizing: border-box;
+}
+/* 设置body的背景色，采用了线性梯度，字体，弹性盒子且内容居中等 */
+body {
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 标题绝对定位，距离顶部10px */
+h2 {
+  position: absolute;
+  top: 10px;
+}
+/* 设置整个滑块大的容器相对定位 */
+.range-container {
+  position: relative;
+}
+/* 定义HTML中<input type='range'>元素的外观，这里使用了选择器+属性的方式，input选择器+[type]属性 */
+input[type='range'] {
+  width: 300px;
+  /* 上下外边距18，左右0 */
+  margin: 18px 0;
+  /* 移除了默认的Webkit（Chrome和Safari浏览器引擎）样式，以便可以自定义滑块的外观 */
+  -webkit-appearance: none;
+}
+
+input[type='range']:focus {
+  /* 鼠标点击时无轮廓线 */
+  outline: none;
+}
+/* 滑动条范围的部分和标签部分样式 */
+input[type='range'] + label {
+  /* 背景色 */
+  background-color: #fff;
+  /* 相对于.range-container绝对定位 */
+  position: absolute;
+  top: -25px;
+  /* 标签left为110px，标签距离父元素的左边缘110px，滑轨300px，标签80px，使标签起始居中 */
+  left: 110px;
+  width: 80px;
+  padding: 5px 0;
+  /* 文本居中，主要用于块级元素，如<div>、<p>、<h1>中的文本内容 */
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 针对不同浏览器设置效果 */
+/* Chrome & Safari */
+/* 滑块轨道track的样式 */
+input[type='range']::-webkit-slider-runnable-track {
+  /* 轨道的背景色紫色，4px圆角，宽和高设置为100%和10px，光标在上面时显示为pointer样式 */
+  background: purple;
+  border-radius: 4px;
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+}
+/* 滑块手柄thumb的样式 */
+input[type='range']::-webkit-slider-thumb {
+  /* 移除默认的滑块样式 */
+  -webkit-appearance: none;
+  /* 宽高背景色和圆角设置等 */
+  height: 24px;
+  width: 24px;
+  background: #fff;
+  border-radius: 50%;
+  /* 设置框线 */
+  border: 1px solid purple;
+  /* 调整滑块手柄的位置，使其垂直居中于轨道 */
+  margin-top: -7px;
+  cursor: pointer;
+}
+
+/* Firefox */
+input[type='range']::-moz-range-track {
+  background: purple;
+  border-radius: 4px;
+  width: 100%;
+  height: 13px;
+  cursor: pointer;
+}
+
+input[type='range']::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid purple;
+  margin-top: -7px;
+  cursor: pointer;
+}
+
+/* IE */
+input[type='range']::-ms-track {
+  background: purple;
+  border-radius: 4px;
+  width: 100%;
+  height: 13px;
+  cursor: pointer;
+}
+
+input[type='range']::-ms-thumb {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid purple;
+  margin-top: -7px;
+  cursor: pointer;
+}

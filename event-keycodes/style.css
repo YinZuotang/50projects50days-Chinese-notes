@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+/* 定义整个布局为border-box */
+* {
+  box-sizing: border-box;
+ 
+}
+/* 设置body的样式，背景色，字体，弹性盒子布局并且水平和垂直居中，文本居中等 */
+body {
+  background-color: #383838;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* key部分边框样式、背景色、阴影效果 */
+.key {
+  border: 1px solid #999999;
+  background-color: #2B2B2B;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  /* 里面还有三个小的盒子，所以使用inline-flex,父元素不设置宽度，宽度就是所有的子元素宽度之和，实现宽度自适应*/
+  display: inline-flex;
+  align-items: center;
+  /* 字体加粗等 */
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px;
+  flex-direction: column;
+  margin: 10px;
+  min-width: 150px;
+  color: white;
+  position: relative;
+}
+/* key的small相对于key为绝对定位 */
+.key small {
+  position: absolute;
+  /* 顶部边缘向上移动24像素 */
+  top: -24px;
+  /* 左侧边缘0px */
+  left: 0;
+  /* 文本居中 */
+  text-align: center;
+  /* 宽度100% */
+  width: 100%;
+  color: #c4c4c4;
+  font-size: 14px;
+}

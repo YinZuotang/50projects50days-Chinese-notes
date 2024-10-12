@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+  box-sizing: border-box;
+}
+/* body的背景色、字体、弹性盒子、横轴为主轴，居中，高度和不溢出，外边距0内边距10px */
+body {
+  background-color: #f4f4f4;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 10px;
+}
+/* 推荐容器的背景色，字体颜色，圆角，外边距和内边距，最大的宽度，相对定位 */
+.testimonial-container {
+  background-color: #476ce4;
+  color: #fff;
+  border-radius: 15px;
+  margin: 20px auto;
+  padding: 50px 80px;
+  max-width: 768px;
+  position: relative;
+}
+/* 引号的文本颜色。字号，绝对定位 */
+.fa-quote {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 28px;
+  position: absolute;
+  top: 70px;
+}
+/* 左侧和右侧的距离边距 */
+.fa-quote-right {
+  left: 40px;
+}
+
+.fa-quote-left {
+  right: 40px;
+}
+/* 行高和文本的对齐方式 */
+.testimonial {
+  line-height: 28px;
+  text-align: justify;
+}
+/* 用户弹性盒子居中 */
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 头像的圆角到圆形、宽高、保持宽高比例缩放并铺满 */
+.user .user-image {
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+  object-fit: cover;
+}
+/* 用户的相信信息的左侧边距 */
+.user .user-details {
+  margin-left: 10px;
+}
+
+.user .username {
+  margin: 0;
+}
+/* role的文本权重为正常 */
+.user .role {
+  font-weight: normal;
+  margin: 10px 0;
+}
+/* 进度条为白色背景，宽高，动画，左侧为起始点 */
+.progress-bar {
+  background-color: #fff;
+  height: 4px;
+  width: 100%;
+  animation: grow 10s linear infinite;
+  transform-origin: left;
+}
+/* 定义进度条动画 */
+@keyframes grow {
+  0% {
+    transform: scaleX(0);
+  }
+}
+/* 媒体查询，针对最大宽度为768px的设备，调整内边距 */
+@media (max-width: 768px) {
+  .testimonial-container {
+    padding: 20px 30px;
+  }
+ /* 在小屏幕设备上，隐藏图标 */
+  .fa-quote {
+    display: none;
+  }
+}

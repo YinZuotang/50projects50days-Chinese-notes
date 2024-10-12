@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 引入字体图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Password Generator</title>
+  </head>
+  <body>
+    <!-- 大的容器  -->
+    <div class="container">
+      <!-- 标题 -->
+      <h2>Password Generator</h2>
+      <!-- 生成的密码结果容器 -->
+      <div class="result-container">
+        <!-- 结果部分 -->
+        <span id="result"></span>
+        <!-- 复制密码的按钮 -->
+        <button class="btn" id="clipboard">
+          <!-- 按钮的字体图标 -->
+          <i class="far fa-clipboard"></i>
+        </button>
+      </div>
+      <!-- 设置相关的容器 -->
+      <div class="settings">
+        <!-- 密码长度设置 -->
+        <div class="setting">
+          <label>Password Length</label>
+          <input type="number" id="length" min="4" max="20" value="20">
+        </div>
+        <!-- 大小写 -->
+        <div class="setting">
+          <label>Include uppercase letters</label>
+          <input type="checkbox" id="uppercase" checked>
+        </div>
+        <div class="setting">
+          <label>Include lowercase letters</label>
+          <input type="checkbox" id="lowercase" checked>
+        </div>
+        <!-- 数字 -->
+        <div class="setting">
+          <label>Include numbers</label>
+          <input type="checkbox" id="numbers" checked>
+        </div>
+        <!-- 特殊字符 -->
+        <div class="setting">
+          <label>Include symbols</label>
+          <input type="checkbox" id="symbols" checked>
+        </div>
+      </div>
+      <!-- 提交按钮 -->
+      <button class="btn btn-large" id="generate">
+        Generate Password
+      </button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* body的背景色，字体颜色，弹性盒子居中布局等 */
+body {
+  background-color: steelblue;
+  color: #fff;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 容器的背景色，内边距，圆角 */
+.container {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  border-radius: 5px;
+}
+/* H1标题的文本居中，底部外边距 */
+.container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+/* a标签的样式 */
+.container a {
+  text-decoration: none;
+  color: lightblue;
+}
+/* 按钮的样式 */
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  background: lightblue;
+  padding: 15px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 0;
+  border-radius: 5px;
+}
+/* 按钮被聚焦时，轮廓线0 */
+.btn:focus {
+  outline: 0;
+}
+/* 按钮激活时，缩小一点 */
+.btn:active {
+  transform: scale(0.98);
+}
+/* text文本顶部外边距30px */
+.text {
+  margin-top: 30px;
+}
+/* 相对定位 */
+.form-control {
+  position: relative;
+  margin: 20px 0 40px;
+  width: 300px;
+}
+/* 输入框相当父元素绝对定位，背景色等进行设置 */
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #fff;
+  position: relative;
+  z-index: 100;
+}
+/* 输入框被聚焦，并且输入内容有效时，底部框线颜色进行设置 */
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: lightblue;
+}
+/* label标签绝对定位 */
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+/* label标签里面的span效果，这里看着没用到，文本被注释了，但是在JS中设置了响应的设置 */
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+/*正在聚焦的输入框，并且输入内容有效时，文本颜色和沿着Y便宜 */
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+  color: lightblue;
+  transform: translateY(-30px);
+}

@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:300,700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* body的背景色,字体,弹性盒子居中 */
+body {
+  background-color: #fbfcfe;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 容器的样式 */
+.container {
+  background-color: #fff;
+  border: 3px #000 solid;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 1000px;
+  text-align: center;
+}
+/* 验证码部分的容器弹性盒子,居中 */
+.code-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+/* 验证码,设置验证码输入框的样式 */
+.code {
+  /* 设置光标颜色为透明 */
+  caret-color: transparent;
+  /* 圆角,字号,宽高,边框,外边距,文本居中 */
+  border-radius: 5px;
+  font-size: 75px;
+  height: 120px;
+  width: 100px;
+  border: 1px solid #eee;
+  margin: 1%;
+  text-align: center;
+  font-weight: 300;
+  -moz-appearance: textfield;
+}
+/*  移除webkit浏览器的输入框上下箭头 */
+.code::-webkit-outer-spin-button,
+.code::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* 设置有效输入时的边框颜色和阴影 */
+.code:valid {
+  border-color: #3498db;
+  box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.25);
+}
+/* 设置信息提示框的样式 */
+.info {
+  background-color: #eaeaea;
+  display: inline-block;
+  padding: 10px;
+  line-height: 20px;
+  max-width: 400px;
+  color: #777;
+  border-radius: 5px;
+}
+/* 媒体查询，针对最大宽度为600px的设备 */
+@media (max-width: 600px) {
+  .code-container {
+    /* 允许换行 */
+    flex-wrap: wrap;
+  }
+  /* 字号,高度,最大宽度 */
+  .code {
+    font-size: 60px;
+    height: 80px;
+    max-width: 70px;
+  }
+}

@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* 引入字体 */
+* {
+  /* 总高度包括内容、内边距、外边距 */
+  box-sizing: border-box;
+}
+
+body {
+  /* 字体 */
+  font-family: 'Roboto', sans-serif;
+  /* 外边距为0 */
+  margin: 0;
+  /* 高度为100%窗口视域  */
+  height: 100vh;
+  /* 隐藏溢出 */
+  overflow: hidden;
+}
+
+h4 {
+  font-size: 20px;
+  /* 外边距5px */
+  margin: 5px;
+  text-transform: uppercase;
+}
+
+/* 倒计时样式，相对窗口居中，内部文本也居中*/
+.counter {
+  /* 固定元素相对于浏览器窗口的位置 */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* 元素向左移动其宽度的50%，向上移动其高度的50%。常与固定定位一起使用，将元素居中对齐 */
+  transform: translate(-50%, -50%);
+  /* 内部文本居中显示 */
+  text-align: center;
+}
+
+/* 设置隐藏效果 */
+.counter.hide {
+  /*将元素位置移动到其原始位置的中心（通过translate(-50%, -50%)），缩放到0不显示*/
+  transform: translate(-50%, -50%) scale(0);
+  /* hide动画0.2秒 ease-out效果 */
+  animation: hide 0.2s ease-out;
+}
+
+/* 定义hide的具体步骤 */
+@keyframes hide {
+  /* 元素被放置在其原始位置的中心，正常大小scale(1) */
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  /* 元素被放置在其原始位置的中心，缩小到消失scale(0) */
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+/* final类样式 */
+.final {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  text-align: center;
+}
+
+/* show动画 */
+.final.show {
+   /* 元素被放置在其原始位置的中心，正常大小scale(1) 呈现出来*/
+  transform: translate(-50%, -50%) scale(1);
+  animation: show 0.2s ease-out;
+}
+
+@keyframes show {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  30% {
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* 倒计时类 */
+.nums {
+  /* 字体颜色、大小、相对定位等设置 */
+  color: #3498db;
+  font-size: 50px;
+  position: relative;
+  overflow: hidden;
+  width: 250px;
+  height: 50px;
+}
+
+/* 倒计时数字类下面的span标签样式 */
+.nums span {
+  /* 绝对定位后元素居中 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 变换效果：将元素向左和向上移动自身宽度和高度的50%，旋转120° */
+  transform: translate(-50%, -50%) rotate(120deg);
+  /* 以底部中心为原点旋转120度 */
+  transform-origin: bottom center;
+}
+
+/* 定义了两个动画，控制.nums子元素里面的span类 */
+.nums span.in {
+  /* 按照中心点对其后旋转0度，即：不旋转 */
+  transform: translate(-50%, -50%) rotate(0deg);
+  /* 使用goIn动画 */
+  animation: goIn 0.5s ease-in-out;
+}
+
+.nums span.out {
+  /* 使用goOut动画 */
+  animation: goOut 0.5s ease-in-out;
+}
+
+/* 具体动画的效果 */
+@keyframes goIn {
+  0% {
+    transform: translate(-50%, -50%) rotate(120deg);
+  }
+
+  30% {
+    transform: translate(-50%, -50%) rotate(-20deg);
+  }
+
+  60% {
+    transform: translate(-50%, -50%) rotate(10deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+@keyframes goOut {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  60% {
+    transform: translate(-50%, -50%) rotate(20deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(-120deg);
+  }
+}
+
+/* 使用ID选择器，#id属性值，对replay按钮进行设置 */
+#replay{
+  /* 背景色、圆角、边框、字体颜色、外边距、居中 */
+  background-color: #3498db;
+  border-radius: 3px;
+  border: none;
+  color: aliceblue;
+  padding: 5px;
+  text-align: center;
+  /* 设置为行内块级元素*/
+  display: inline-block;
+  /* 鼠标悬停时为指针 */
+  cursor: pointer;
+  /* 过渡所有属性0.3s */
+  transition: all 0.3s;
+}
+
+/* 对Replay文字样式设置 */
+#replay span{
+  /* 悬停指针、行内块级元素 */
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* 使用伪类，定义之后的动作*/
+#replay span:after{
+  /* 类似>>的特殊字符小箭头 */
+  content: '\00bb';
+  position: absolute;
+  /* 初始透明，不可见 */
+  opacity: 0;
+  /* 与span顶部对齐 */
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+/* 鼠标悬停时增加右边距，显示>>特殊字符 */
+#replay:hover span{
+  padding-right: 25px;
+}
+
+/* 鼠标悬停时，完全可见，：after伪元素移动到span的右侧，距离右侧0 */
+#replay:hover span:after{
+  opacity: 1;
+  right: 0;
+}

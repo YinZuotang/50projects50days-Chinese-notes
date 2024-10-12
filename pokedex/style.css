@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* body的背景色、背景颜色的线性梯度变化、字体、弹性盒子以列为主轴，左右和上下居中 */
+body {
+  background: #efefbb;
+  background: linear-gradient(to right, #d4d3dd, #efefbb);
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+/* h1标题 */
+h1 {
+  letter-spacing: 3px;
+}
+/* poke容器弹性盒子， */
+.poke-container {
+  display: flex;
+  /* 允许换行 */
+  flex-wrap: wrap;
+  /* 横向两端对齐 */
+  align-items: space-between;
+  /* 纵向居中 */
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+/* 单个的pokemon容器，背景色、圆角、盒子阴影效果、外边距和内边距、文本居中 */
+.pokemon {
+  background-color: #eee;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+}
+/* 图片的容器，背景色、圆角成圆、宽高、文本居中 */
+.pokemon .img-container {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  text-align: center;
+}
+/* 图片最大宽度、顶部外边距 */
+.pokemon .img-container img {
+  max-width: 90%;
+  margin-top: 20px;
+}
+/* pockmon信息顶部外边距 */
+.pokemon .info {
+  margin-top: 20px;
+}
+/* 数字部分的背景色】内边距、圆角、字体 */
+.pokemon .info .number {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 0.8em;
+}
+/* 名字 外边距、字母之间的间距 */
+.pokemon .info .name {
+  margin: 15px 0 7px;
+  letter-spacing: 1px;
+}

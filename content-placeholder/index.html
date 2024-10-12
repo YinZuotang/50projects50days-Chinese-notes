@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Content Placeholder</title>
+  </head>
+  <body>
+    <!-- 定义一个card类容器 -->
+    <div class="card">
+      <!-- card头部在加载过程中的动画背景类 -->
+      <div class="card-header animated-bg" id="header">&nbsp;</div>
+
+      <!-- card内容 -->
+      <div class="card-content">
+        <!-- 三级标题，元素被赋予了三个 CSS 类-->
+        <h3 class="card-title animated-bg animated-bg-text" id="title">
+          <!--&nbsp;是HTML 实体，代表一个空白字符，通常用于在网页上插入空格。 -->
+          &nbsp;
+        </h3>
+        <!-- card的内容 -->
+        <p class="card-excerpt" id="excerpt">
+          &nbsp;
+          <!-- 定义三个span段落 -->
+          <span class="animated-bg animated-bg-text">&nbsp;</span>
+          <span class="animated-bg animated-bg-text">&nbsp;</span>
+          <span class="animated-bg animated-bg-text">&nbsp;</span>
+        </p>
+        <!-- author容器 -->
+        <div class="author">
+          <div class="profile-img animated-bg" id="profile_img">&nbsp;</div>
+          <div class="author-info">
+            <!-- name使用了强调 -->
+            <strong class="animated-bg animated-bg-text" id="name"
+              >&nbsp;</strong
+            >
+            <!-- small标签表示较小的文本，在视觉上会使得文本比周围的文本小，表示附加信息等。 -->
+            <small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

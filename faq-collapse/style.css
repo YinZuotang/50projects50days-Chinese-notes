@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+/* 设置布局为border-box */
+* {
+  box-sizing: border-box;
+}
+/* body的字体背景色等 */
+body {
+  font-family: 'Muli', sans-serif;
+  background-color: #f0f0f0;
+}
+/* h1的上右下左外边距，居中文本*/
+h1 {
+  margin: 50px 0 30px;
+  text-align: center;
+}
+/* 大的faq容器的最大宽度等 */
+.faq-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+/* 5个faq的样式，背景色为透明，边框，圆角，相对定位等 */
+.faq {
+  background-color: transparent;
+  border: 1px solid #9fa4a8;
+  border-radius: 10px;
+  margin: 20px 0;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+/* 被激活的faq背景色和阴影等 */
+.faq.active {
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+/* 添加两个伪类，faq激活前和激活后 */
+/* ::before 和 ::after 伪元素被用来在元素的内容之前和之后添加内容 */
+.faq.active::before,
+.faq.active::after {
+  /* 为伪元素设置了一个内容值，'\f075' 是Font Awesome图标字体中的一个图标代码*/
+  content: '\f075';
+  /* 字体*/
+  font-family: 'Font Awesome 5 Free';
+  /* 设置激活后左侧的图标的颜色 */
+  color: #2ecc71;
+  font-size: 7rem;
+  position: absolute;
+  opacity: 0.2;
+  top: 20px;
+  left: 20px;
+  z-index: 0;
+}
+/* 还是为左侧的图标设置样式，将其左翼和上移，沿着Y轴旋转 */
+.faq.active::before {
+  color: #3498db;
+  top: -10px;
+  left: -30px;
+  transform: rotateY(180deg);
+}
+/* faq标题样式 */
+.faq-title {
+  margin: 0 35px 0 0;
+}
+/* faq文本默认不可见，上外边距30px */
+.faq-text {
+  display: none;
+  margin: 30px 0 0;
+}
+/* 被激活的faq的文本可见，为block布局 */
+.faq.active .faq-text {
+  display: block;
+}
+/* .faq-toggle，也就是字体图标处的样式 */
+/* 透明背景色，边框0，圆角，弹性盒子并居中对齐，相对于faq绝对定位等 */
+.faq-toggle {
+  background-color: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding: 0;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 30px;
+  width: 30px;
+}
+/* 字体图标按钮的外框线为0 */
+.faq-toggle:focus {
+  outline: 0;
+}
+/* 默认的x图标不可见 */
+.faq-toggle .fa-times {
+  display: none;
+}
+/* 被激活后的faq的x图标可见 */
+.faq.active .faq-toggle .fa-times {
+  color: #fff;
+  display: block;
+}
+/* 被激活的向下的箭头不可见 */
+.faq.active .faq-toggle .fa-chevron-down {
+  display: none;
+}
+/* 被激活的faq的toggle部分是灰色背景 */
+.faq.active .faq-toggle {
+  background-color: #9fa4a8;
+}

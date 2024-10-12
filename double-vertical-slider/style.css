@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+/* 引入字体，设置所有的元素的布局为border-box，不考虑边框和内边距 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* 定义字体和高度 */
+body {
+  font-family: 'Open Sans', sans-serif;
+  height: 100vh;
+}
+/* 定义滑动门容器为相对定位，隐藏溢出，高度和宽度分别为100%视窗 */
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+/* 左侧，高度100%，宽度35%，相对于.slider-container绝对定位，距离左侧和顶部为0 */
+/* 并且执行过渡效果，在元素位置发生变动时执行0.5s，使用先慢后快再快的效果 */
+.left-slide {
+  height: 100%;
+  width: 35%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease-in-out;
+}
+/* 左侧滑动门下面的四个容器的样式 */
+.left-slide > div {
+  /* 宽高相对于左侧滑动门100% */
+  height: 100%;
+  width: 100%;
+  /* 弹性盒子，横向盒子，垂直和水平居中对齐 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* 白色的字体 */
+  color: #fff;
+}
+/* 标题的字号，底部和顶部外边距等 */
+.left-slide h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  margin-top: -30px;
+}
+/* 右侧滑动门大的容器样式 */
+.right-slide {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 35%;
+  width: 65%;
+  transition: transform 0.5s ease-in-out;
+}
+/* 右侧滑动门的四个图片所在的容器，背景 */
+.right-slide > div {
+  /* 背景图不重复 */
+  background-repeat: no-repeat;
+  /* 背景图完全覆盖 */
+  background-size: cover;
+  /* 水平和垂直居中 */
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+}
+/* 按钮的背景色、无边界、字体的颜色等 */
+button {
+  background-color: #fff;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 15px;
+}
+/* 鼠标悬停时的字体图标颜色 */
+button:hover {
+  color: #222;
+}
+/* 鼠标点击时 */
+button:focus {
+  outline: none;
+}
+/* 按钮也绝对定位，距离左侧35%，距离顶部50% */
+.slider-container .action-buttons button {
+  position: absolute;
+  left: 35%;
+  top: 50%;
+  z-index: 100;
+}
+/* 设置向下和向上的按钮分别沿着x和y轴，向左和向上移动自己宽度的100%，位置错开 */
+.slider-container .action-buttons .down-button {
+  transform: translateX(-100%);
+  /* 左下和左上角圆角效果 */
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.slider-container .action-buttons .up-button {
+  transform: translateY(-100%);
+   /* 右下和右上角圆角效果 */
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

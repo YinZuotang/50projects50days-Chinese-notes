@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* body的字体,弹性盒子居中布局 */
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  /* 盒子主轴方向为列,那么交叉轴为行*/
+  flex-direction: column;
+  /* 交叉轴居中 */
+  align-items: center;
+  /* 主轴居中 */
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 切换容器的样子,弹性盒子,交叉轴(横向)居中*/
+.toggle-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  width: 200px;
+}
+/* 一开始的切换是不可见的 */
+.toggle {
+  visibility: hidden;
+}
+/* label的样式,相对定位 */
+.label {
+  position: relative;
+  background-color: #d0d0d0;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 15px 0;
+  width: 80px;
+  height: 40px;
+}
+/* 具有 class="toggle" 且被勾选（checked）的复选框元素的相邻兄弟label的样式,背景色修改 */
+.toggle:checked + .label {
+  background-color: #8e44ad;
+}
+/* 球的背景色,宽高,圆角50% */
+.ball {
+  background: #fff;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  /* 切换的球相对于label绝对定位 */
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  align-items: center;
+  justify-content: center;
+  /* 动画效果, slideOff动画0.3秒,线性变化*/
+  /* orwards 表示在动画结束后，元素将保持动画结束时的状态 */
+  animation: slideOff 0.3s linear forwards;
+}
+/* .toggle 类的复选框被选中时，其相邻的.label类元素内的.ball类元素将会执行名为slideOn的动画 */
+.toggle:checked + .label .ball {
+  animation: slideOn 0.3s linear forwards;
+}
+/* 定义了两个动画,勾选与取消勾选时,在横向上位置的偏移和缩放变化 */
+/* 勾选时,在横向,从左到右移动球40px,先放大到1.2倍再缩小到1倍 */
+@keyframes slideOn {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  50% {
+    transform: translateX(20px) scale(1.2);
+  }
+  100% {
+    transform: translateX(40px) scale(1);
+  }
+}
+
+@keyframes slideOff {
+  0% {
+    transform: translateX(40px) scale(1);
+  }
+  50% {
+    transform: translateX(20px) scale(1.2);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}

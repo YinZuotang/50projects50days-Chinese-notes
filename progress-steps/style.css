@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+/* 两个根元素，填充时框线颜色，空的框线颜色 */
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #383838;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+/* body背景色，字体，弹性盒子居中布局 */
+body {
+  background-color: #f1f1f1;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 容器，文本居中 */
+.container {
+  text-align: center;
+}
+/* 进度条弹性盒子，分散对齐，相对定位 */
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+/* 进度条设置伪类，表示没有到这一阶段时 */
+.progress-container::before {
+  /* 内容是空，背景色是空对应的黑色 */
+  content: '';
+  background-color: var(--line-border-empty);
+  /* 绝对定位，元素上边缘距离父元素上边缘50%自身*/
+  position: absolute;
+  top: 50%;
+  /*  元素的左边缘与包含块的左边缘对齐  */
+  left: 0;
+  /* 垂直方向上移动元素自身的50% */
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+/* 进度被完成时，背景色进行修改 */
+.progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  /* 0.4s 缓慢转换过渡 */
+  transition: 0.4s ease;
+}
+/* 表示进度的圆球，背景色、字体颜色、圆角、弹性盒子居中、边框设置 */
+.circle {
+  background-color: #f1f1f1;
+  color:#e2e2e2;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--line-border-empty);
+  transition: 0.4s ease;
+}
+/* 圆球所在的这一步被执行后，改变颜色 */
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+/* 按钮的背景色，字体颜色，边框，圆角，字体等设置 */
+.btn {
+  background-color: var(--line-border-fill);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+/* 按钮被点击是，缩小一点，动态效果 */
+.btn:active {
+  transform: scale(0.98);
+}
+/* 无轮廓线 */
+.btn:focus {
+  outline: 0;
+}
+/* 按钮被禁用时，改变颜色，鼠标悬停时 not-allowed样式 */
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}

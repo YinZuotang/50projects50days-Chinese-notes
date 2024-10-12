@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* body的背景色，字体，弹性盒子居中 */
+body {
+  background-color: rebeccapurple;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 按钮的背景色，字体颜色，字体，加粗，内边距，圆角，边框无 */
+.btn {
+  background-color: #ffffff;
+  color: rebeccapurple;
+  font-family: inherit;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+/* 无轮廓线 */
+.btn:focus {
+  outline: none;
+}
+/* 激活时缩放效果 */
+.btn:active {
+  transform: scale(0.98);
+}
+/* toasts的样式，fixed定位，弹性盒子 */
+#toasts {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+/* .toast的背景色，圆角，内边距，外边距 */
+.toast {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+}
+/* 信息的颜色， */
+.toast.info {
+  color: rebeccapurple;
+}
+/* 成功的绿 */
+.toast.success {
+  color: green;
+}
+/* 错误信息是红 */
+.toast.error {
+  color: red;
+}

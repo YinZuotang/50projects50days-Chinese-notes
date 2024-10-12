@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+/* body弹性盒子，以列为主轴，子元素主轴和交叉轴都居中 */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 背景，以图片为背景，绝对定位，上下左右都是-20px，超出界面20px, */
+.background {
+  background: url('https://images.unsplash.com/photo-1556745757-8d76bdb6984b')
+    no-repeat center center/cover;
+  position: absolute;
+  top: -20px;
+  bottom: -20px;
+  left: -20px;
+  right: -20px;
+  /* 堆叠顺序，在父元素后面 */
+  z-index: -1;
+  /* 应用一个20像素的高斯模糊效果 */
+  filter: blur(20px);
+}

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* body的字体,弹性盒子居中 */
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+/* 图片的大小, */
+img {
+  width: 500px;
+  height: 500px;
+  /* 内容被缩放以完全覆盖容器，保持宽高比 */
+  object-fit: cover;
+}
+/* "旋转木马"的阴影,宽高,隐藏超出的部分 */
+.carousel {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  height: 530px;
+  width: 500px;
+  overflow: hidden;
+}
+/* 图片容器,弹性盒子布局,默认在X轴移动0 */
+.image-container {
+  display: flex;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
+}
+/* 按钮容器弹性盒子布局, 主轴(默认横轴)对齐方式是:在每个项目两侧提供相等的间隔*/
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+/* 按钮的样式 */
+.btn {
+  background-color: rebeccapurple;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  width: 49.5%;
+}
+/* 按钮被悬停时，可见改成0.9 */
+.btn:hover {
+  opacity: 0.9;
+}
+/* 按钮点击时，无轮廓线 */
+.btn:focus {
+  outline: none;
+}

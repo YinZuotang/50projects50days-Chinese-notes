@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* body的背景色,字体,弹性盒子,居中,高度,隐藏溢出部分,外边距为0 */
+body {
+  background-image: linear-gradient(90deg, #7d5fff, #7158e2);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 搜索栏大的div相对定位 */
+.search {
+  position: relative;
+  height: 50px;
+}
+/* 输入框的背景色,外边,字号,内边距,宽高,切换效果 */
+.search .input {
+  background-color: #fff;
+  border: 0;
+  font-size: 18px;
+  padding: 15px;
+  height: 50px;
+  width: 50px;
+  transition: width 0.3s ease;
+}
+/* 按钮的颜色,边框等 */
+.btn {
+  background-color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-size: 24px;
+  /* 作为search的子元素,绝对定位 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  transition: transform 0.3s ease;
+}
+/* 按钮或者输入框被点击时,无轮廓线 */
+.btn:focus,
+.input:focus {
+  outline: none;
+}
+/* 搜索栏被激活时,宽度为200px */
+.search.active .input {
+  width: 200px;
+}
+/* 按钮横向移动198px */
+.search.active .btn {
+  transform: translateX(198px);
+}

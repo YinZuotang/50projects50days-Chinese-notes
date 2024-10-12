@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* 导入字体 */
+/* 设置布局为border-box，包括边框和内边距 */
+* {
+  box-sizing: border-box;
+}
+
+/* 定义body的样式，背景色、字体、内容居中、隐藏超出的部分、无外边距 */
+body {
+  background-color: darksalmon;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 设置底部的速度控制div标签绝对定位，距离底部20px、背景色为黑色、内边距10和20、字号18*/
+div {
+  position: absolute;
+  bottom: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  font-size: 18px;
+}
+/* 设置input按钮的宽为50、内边距5，字体18，背景色为darksalmon， 无边框，文本居中*/
+input {
+  width: 50px;
+  padding: 5px;
+  font-size: 18px;
+  background-color: darksalmon;
+  border: none;
+  text-align: center;
+}
+/* 鼠标聚焦到input框后，无框线 */
+input:focus {
+  outline: none;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 设置视口，width=device-width 表示视口宽度设置为设备的宽度，initial-scale=1.0 表示页面初始缩放比例为 1，即页面大小与设备屏幕宽度相匹配。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 链接标签，用于引入 Font Awesome 的 CSS 文件。Font Awesome 是一个流行的图标库，提供了许多常用的图标 -->
+     <!-- integrity 属性用于验证文件的完整性，以确保文件没有被篡改。crossorigin="anonymous" 表示在请求资源时不发送任何身份凭证 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Background Slider</title>
+  </head>
+  <body>
+    <!-- 设置滑块容器 -->
+    <div class="slider-container">
+      <!-- 定义了5个子容器，存放背景图 -->
+      <div
+        class="slide active"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80');
+        "
+      ></div>
+      <div
+        class="slide"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80');
+        "
+      ></div>
+
+      <div
+        class="slide"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1495467033336-2effd8753d51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80');
+        "
+      ></div>
+
+      <div
+        class="slide"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1522735338363-cc7313be0ae0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80');
+        "
+      ></div>
+
+      <div
+        class="slide"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1559087867-ce4c91325525?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80');
+        "
+      ></div>
+
+        <!-- 定义左右两个滑块按钮，并使用了左右箭头图标 -->
+      <button class="arrow left-arrow" id="left">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+
+      <button class="arrow right-arrow" id="right">
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+    <!-- 引入JS -->
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* 引入了两种字体，Roboto和Poppins */
+/* 还是使用*通用选择器匹配页面所有元素，将box-sizing属性设置为border-box改变元素盒模型的计算方式，使元素的宽度和高度包括内容、内边距（padding）和边框（border） */
+* {
+  box-sizing: border-box;
+}
+/* 设置body元素样式 */
+body {
+  /* 设置背景色 */
+  background-color: #fafafa;
+  /* 设置字体，如果roboto字体不能用则使用sans-serif字体 */
+  font-family: 'Roboto', sans-serif;
+  /* 弹性容器 */
+  display: flex;
+  /* 主轴为垂直方向 */
+  flex-direction: column;
+  /* 垂直方向居中 */
+  align-items: center;
+  /* 水平居中 */
+  justify-content: center;
+  height: 100vh;
+  /* 隐藏超出部分 */
+  overflow: hidden;
+}
+
+/* 设置magic按钮样式 */
+.magic {
+  background-color: #f9ca24;
+  /* 字体颜色 */
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  /* 无框线 */
+  border: 0;
+  /* 边框圆角为3像素 */
+  border-radius: 3px;
+  /* 字号 */
+  font-size: 16px;
+  /* 设置内边距垂直内边距为12px,水平内边距20px */
+  padding: 12px 20px;
+  /* 鼠标悬停时,光标为 pointer指针小手的样式,暗示可以点击*/
+  cursor: pointer;
+  /* 将元素相对于视窗进行定位,即元素的位置保持不变*/
+  position: fixed;
+  /* 设置元素距离其包含块顶部20像素,也就是浏览器顶部 */
+  top: 20px;
+  /* 字母之间的间距 */
+  letter-spacing: 1px;
+  /* 盒子阴影效果 */
+  box-shadow: 0 3px rgba(249, 202, 36, 0.5);
+  /* 元素的堆叠顺序 */
+  z-index: 100;
+}
+
+/* 定义两个伪类选择器,用于改变元素在特定交互状态下的样式*/
+.magic:focus {
+  /* 移除当.magic类的元素获得焦点时浏览器默认的轮廓线（outline）,感觉可以省略 */
+  outline: none;
+}
+
+.magic:active {
+  /* 移除当.magic类的元素被按下（活跃状态）时的阴影效果,给用户一种按钮被按下的视觉反馈*/
+  box-shadow: none;
+  /* 使用CSS变换（transform）属性将元素向下移动2像素,给用户一种按钮被按下的视觉效果 */
+  transform: translateY(2px);
+}
+
+/* 先定义boxes类的效果,这是效果图第二张图时的设置 */
+.boxes {
+  display: flex;
+  /* 允许子元素换行显示 */
+  flex-wrap: wrap;
+  /* 在主轴上平均分布子元素，每个元素两侧的间隔相等 */
+  justify-content: space-around;
+  /* 设置高和宽 */
+  height: 500px;
+  width: 500px;
+  /* 相对定位 */
+  position: relative;
+  /* 为尺寸变化设置一个0.4秒的渐变动画效果 */
+  transition: 0.4s ease;
+}
+/* 盒子分散后的尺寸设置 */
+.boxes.big {
+  width: 600px;
+  height: 600px;
+}
+
+/* .box由JS函数创建 */
+.boxes.big .box {
+  /* 子元素.box在.boxes.big容器中会被旋转360度 */
+  transform: rotateZ(360deg);
+}
+/* 设置16个子元素.box的样式 */
+.box {
+  /* 添加背景图为小黄人动图 */
+  background-image: url('https://media.giphy.com/media/EZqwsBSPlvSda/giphy.gif');
+  /* 确保背景图像不重复平铺 */
+  background-repeat: no-repeat;
+  /* 背景图尺寸 */
+  background-size: 500px 500px;
+  /* 相对定位 */
+  position: relative;
+  /* 设置.box元素的尺寸 */
+  height: 125px;
+  width: 125px;
+  /* 变换设置一个0.4秒的渐变动画效果 */
+  transition: 0.4s ease;
+}
+
+/* 定义了.box元素的两个伪元素::after和::before的样式，形成分割后的小图片三维景深的效果*/
+/* 小图片右侧的黄色矩形 */
+.box::after {
+  /* 必须提供非空的content属性值来创建伪元素 */
+  content: '';
+  background-color: #f6e58d;
+  /* 相对于其最近的已定位（非static）祖先元素为绝对定位 */
+  position: absolute;
+  /* 将伪元素从其包含元素的顶部向下偏移8像素 */
+  top: 8px;
+  /* 向左偏移15像素 */
+  right: -15px;
+  /* 高度为其包含元素的高度的100% */
+  height: 100%;
+  /* 设置伪元素的宽度为15像素 */
+  width: 15px;
+  /* 沿着Y轴将伪元素倾斜45度 */
+  transform: skewY(45deg);
+}
+
+/* 小图片下面的黄色矩形 */
+.box::before {
+  content: '';
+  background-color: #f9ca24;
+  position: absolute;
+  /* 向上偏移15px */
+  bottom: -15px;
+  /* 向右偏移8px */
+  left: 8px;
+  /* 高15px */
+  height: 15px;
+  /* 宽100% */
+  width: 100%;
+  /* 沿着x轴将伪元素倾斜45度 */
+  transform: skewX(45deg);
+}

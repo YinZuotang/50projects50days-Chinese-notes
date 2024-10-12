@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* 定义两种主要颜色和次要颜色 */
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+}
+/* 为html元素设置过渡效果，用于平滑地进行样式变换 */
+html {
+  transition: all 0.5s ease-in;
+}
+/* 当html元素具有dark类时，设置暗色主题的主要颜色和次要颜色*/
+html.dark {
+  --primary-color: #fff;
+  --secondary-color: #333;
+}
+/* 当html元素具有dark类时，设置背景颜色和文字颜色 */
+html.dark {
+  background-color: #111;
+  color: var(--primary-color);
+}
+/* 设置body的字体、布局、高度、溢出行为、外边距 */
+body {
+  font-family: 'Heebo', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 设置切换按钮的指针，背景色，文本颜色，边框，圆角等 */
+.toggle {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 100px;
+}
+/* 聚焦时无轮廓线 */
+.toggle:focus {
+  outline: none;
+}
+/* 设置时钟容器的弹性盒子，横轴方向，子元素两端对齐，居中 */
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+/* 设置时钟的尺寸和位置 */
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+/* 设置时针的背景色，绝对定位，和位置 */
+.needle {
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 65px;
+  width: 3px;
+  transform-origin: bottom center;
+  transition: all 0.5s ease-in linear;
+}
+/* 设置 时针的变换 */
+.needle.hour {
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+/* 设置分针的 位置 */
+.needle.minute {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+}
+/* 秒针的样式，颜色 */
+.needle.second {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+  background-color: #e74c3c;
+}
+/* 设置时钟中心点的背景色，宽高，绝对定位和位置 */
+.center-point {
+  background-color: #e74c3c;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+/* 设置中心点装饰的背景色，宽高，绝对定位和位置 */
+.center-point::after {
+  content: '';
+  background-color: var(--primary-color);
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+/* 设置时间的字体大小 */
+.time {
+  font-size: 60px;
+}
+
+/* 设置日期的的颜色，字号，文本间距，大写 */
+.date {
+  color: #aaa;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+/* 设置日期中圆圈的的背景色，文本颜色，圆角，宽高，inline-flex布局，居中 */
+.date .circle {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 50%;
+  height: 18px;
+  width: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 18px;
+  transition: all 0.5s ease-in;
+  font-size: 12px;
+}

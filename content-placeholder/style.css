@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* 引用字体，设置布局为border-box */
+* {
+  box-sizing: border-box;
+}
+/* 设置网页的整体背景为灰色，字体、弹性容器并居中，铺满窗口等 */
+body {
+  background-color: #ecf0f1;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 设置图片的宽度为容器的100% */
+img {
+  max-width: 100%;
+}
+/* 设置card的阴影、圆角效果、隐藏溢出、宽度 */
+.card {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 350px;
+}
+/* card头部的高度 */
+.card-header {
+  height: 200px;
+}
+/* card头部图片的样式 */
+.card-header img {
+  /* 保持img的宽高比，铺满容器，裁剪超出的部分 */
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+/* carb文本下面内容部分的背景等 */
+.card-content {
+  background-color: #fff;
+  padding: 30px;
+}
+/* 标题样式 */
+.card-title {
+  height: 20px;
+  margin: 0;
+}
+/* 摘录的文本部分的颜色等 */
+.card-excerpt {
+  color: #777;
+  margin: 10px 0 20px;
+}
+/* 作者部分设置为弹性容器 */
+.author {
+  display: flex;
+}
+/* 个人信息图片圆角等 */
+.profile-img {
+  border-radius: 50%;
+  overflow: hidden;
+  height: 40px;
+  width: 40px;
+}
+/* 作者信息 */
+.author-info {
+  display: flex;
+  /* 主轴改为列，默认是行 */
+  flex-direction: column;
+  /* 在主轴上的对齐方式设置为 space-around， */
+  justify-content: space-around;
+  margin-left: 10px;
+  width: 100px;
+}
+/* 设置small部分的样式 */
+.author-info small {
+  color: #aaa;
+  margin-top: 5px;
+}
+/* 开始时的背景动画，滑动三次的效果 */
+.animated-bg {
+  /* 背景图线性梯度从左到右侧，从0%-100%即从最左到最右侧时对应不同的颜色 */
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 10%,
+    #f6f7f8 20%,
+    #f6f7f8 100%
+  );
+  background-size: 200% 100%;
+  /* 动画无限循环 */
+  animation: bgPos 1s linear infinite;
+}
+/* 背景文本动画，滑动三次的效果 */
+.animated-bg-text {
+  /* 圆角 */
+  border-radius: 50px;
+  /* 行内块元素 */
+  display: inline-block;
+  margin: 0;
+  height: 10px;
+  width: 100%;
+}
+/* 定义动画改变背景图的位置*/
+@keyframes bgPos {
+  
+  0% {
+    background-position: 50% 0;
+  }
+  /* 背景向左移动，移出 */
+  100% {
+    background-position: -150% 0;
+  }
+}

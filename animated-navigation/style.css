@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+/* 依旧设置了布局为border-box，包括边框和内边距  */
+* {
+  box-sizing: border-box;
+}
+/* 设置整体的样式 */
+body {
+  /* 背景色 */
+  background-color: #eafbff;
+  /* 背景图颜色线性梯度变化 */
+  background-image: linear-gradient(
+    to bottom,
+    #eafbff 0%,
+    #eafbff 50%,
+    #5290f9 50%,
+    #5290f9 100%
+  );
+  /* 字体 */
+  font-family: 'Muli', sans-serif;
+  /* 居中显示 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* 设置导航栏样式 */
+nav {
+  /* 背景色、内边距、 宽度、居中显示*/
+  background-color: #fff;
+  padding: 20px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 圆角、阴影效果、动画、溢出的部分隐藏 */
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: width 0.6s linear;
+  overflow-x: hidden;
+}
+/* 导航栏active宽度 */
+nav.active {
+  width: 350px;
+}
+/* 导航栏内列表 */
+nav ul {
+  /* 对列表弹性盒子布局，且移除前面的列表样式符号*/
+  display: flex;
+  list-style-type: none;
+  /* 内边距外边距为0，宽度为0即不显示，线性的宽度变化效果0.6秒 */
+  padding: 0;
+  margin: 0;
+  width: 0;
+  transition: width 0.6s linear;
+}
+/* active 类下面的列表宽度为100% */
+nav.active ul {
+  width: 100%;
+}
+/* 每一个具体的单元格样式 */
+nav ul li {
+  /* 旋转，0度 */
+  transform: rotateY(0deg);
+  /* 透明度，0 */
+  opacity: 0;
+  /* 对旋转和透明度设置两个动画效果，透明度和旋转渐变，不是一下子变化*/
+  transition: transform 0.6s linear, opacity 0.6s linear;
+}
+/* 透明度1即不透明，旋转360度*/
+nav.active ul li {
+  opacity: 1;
+  transform: rotateY(360deg);
+}
+/* 设置文本样式 */
+nav ul a {
+  position: relative;
+  color: #000;
+  /* 文本装饰无 */
+  text-decoration: none;
+  margin: 0 10px;
+}
+/* 导航栏右侧X样式 */
+.icon {
+  background-color: #fff;
+  /* 无边框 */
+  border: 0;
+  cursor: pointer;
+  /* 内边距0 */
+  padding: 0;
+  position: relative;
+  height: 30px;
+  width: 30px;
+}
+/* 鼠标聚焦到X符号时也不会有轮廓线 */
+.icon:focus {
+  outline: 0;
+}
+/* 设置X或者=的两根线 */
+.icon .line {
+  /* 蓝色，高2宽20 */
+  background-color: #5290f9;
+  height: 2px;
+  width: 20px;
+  /* 相对于.icon绝对定位,距离顶部和左端距离为10和5 */
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  transition: transform 0.6s linear;
+}
+/* 设置线2距离顶部自动,距离底部10 */
+.icon .line2 {
+  top: auto;
+  bottom: 10px;
+}
+
+/* 在点击X激活后,两根线旋转765度,上下移动 5.5px 变成了=样式 */
+nav.active .icon .line1 {
+  transform: rotate(-765deg) translateY(5.5px);
+}
+
+nav.active .icon .line2 {
+  transform: rotate(765deg) translateY(-5.5px);
+}

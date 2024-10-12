@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* body的背景色，字体，弹性盒子居中等 */
+body {
+  background-color: #fef9f2;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 面板容器的背景色白色，阴影效果，圆角效果等 */
+.panel-container {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  font-size: 90%;
+  /* 弹性盒子，居中布局 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  max-width: 400px;
+}
+/* 强调文本的高度 */
+.panel-container strong {
+  line-height: 20px;
+}
+/* 三个反馈容器为弹性盒子，上下外边距20px */
+.ratings-container {
+  display: flex;
+  margin: 20px 0;
+}
+/* 三个反馈图片所在的容器的样式 */
+.rating {
+  flex: 1;
+  cursor: pointer;
+  padding: 20px;
+  margin: 10px 5px;
+}
+/* 被选中激活的满意度图片的圆角和阴影效果 */
+.rating:hover,
+.rating.active {
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* 满意度图片的宽度 */
+.rating img {
+  width: 40px;
+}
+/* 满意度图片下面的文本的颜色，行内块级元素等 */
+.rating small {
+  color: #555;
+  display: inline-block;
+  margin: 10px 0 0;
+}
+/* 被激活的文本颜色 */
+.rating:hover small,
+.rating.active small {
+  color: #111;
+}
+/* 按钮的背景色，字体颜色，边框，圆角，内边距等 */
+.btn {
+  background-color: #302d2b;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 12px 30px;
+  cursor: pointer;
+}
+/* 被聚焦时轮廓线0 */
+.btn:focus {
+  outline: 0;
+}
+/* 按钮被点击时，缩小的效果，呈现一种动态的效果 */
+.btn:active {
+  transform: scale(0.98);
+}
+/* 心形的颜色等 */
+.fa-heart {
+  color: red;
+  font-size: 30px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* body的背景色，字体和颜色等，文本居中 */
+body {
+  background-color: #516dff;
+  color: #fff;
+  font-family: 'Press Start 2P', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  text-align: center;
+}
+/* a标签的文本为白色 */
+a {
+  color: #fff;
+}
+/* h1的行高也就是垂直间距为1.4 */
+h1 {
+  line-height: 1.4;
+}
+/* 开始游戏按钮的样式，无边框，白色背景蓝色字体，内边距，字体，鼠标聚焦点击时为pointer */
+.btn {
+  border: 0;
+  background-color: #fff;
+  color: #516dff;
+  padding: 15px 20px;
+  font-family: inherit;
+  cursor: pointer;
+}
+/* 按钮被悬停时，可见性0.9 */
+.btn:hover {
+  opacity: 0.9;
+}
+/* 鼠标聚焦按钮无轮廓线 */
+.btn:focus {
+  outline: 0;
+}
+/* 整个screen容器的大小时100%的屏幕大小，弹性盒子，子元素以列为主轴，
+子元素上下左右都居中，margin属性发生变化时，ease-out 方式过渡0.5s*/
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  transition: margin 0.5s ease-out;
+}
+/* JS代码为screen添加up类名，实现当前屏幕向上切换效果 */
+.screen.up {
+  margin-top: -100vh;
+}
+/* 昆虫列表弹性盒子，图片铺满，以主轴进行居中（这里insects-list未设置主轴，使用默认：横向），无列表前面的符号和内边距*/
+.insects-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+/* 四个单元格之间的外边距10px */
+.insects-list li {
+  margin: 10px;
+}
+/* 昆虫按钮的样式，背景色、边框颜色、字体颜色等 */
+.choose-insect-btn {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  width: 150px;
+  height: 150px;
+}
+/* 昆虫按钮悬停时的背景色和字体亚瑟 */
+.choose-insect-btn:hover {
+  background-color: #fff;
+  color: #516dff;
+}
+/* 昆虫按钮被点击激活的背景色 */
+.choose-insect-btn:active {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+/* 昆虫图片，宽高使用100px,缩放图像使得图像整个内容都可见，并且图像的长宽比保持不变 */
+.choose-insect-btn img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+/* 开始后的游戏容器是相对定位 */
+.game-container {
+  position: relative;
+}
+/* 定时和计数器是绝对定位，距离顶部20px */
+.time,
+.score {
+  position: absolute;
+  top: 20px;
+}
+/* 定时和计数一左一右，距离边20px */
+.time {
+  left: 20px;
+}
+
+.score {
+  right: 20px;
+}
+/* 最后提示的消息的行高、背景色等 */
+.message {
+  line-height: 1.7;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 20px;
+  /* 显示在最上层，且文本居中 */
+  z-index: 100;
+  text-align: center;
+  /* 起初可见度0，不可见 */
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  /* 设置切换效果，移动元素的位置，将沿水平方向向左移动自身宽度的 50%，沿垂直方向向上移动自身高度的 150%，
+  平改变 transform 属性的值，持续时间是 0.4 秒，时序函数是 ease-in */
+  transform: translate(-50%, -150%);
+  transition: transform 0.4s ease-in;
+}
+/* 当消息可见时，消息提示向右下移动，且可见 */
+.message.visible {
+  transform: translate(-50%, 150%);
+  opacity: 1;
+}
+/* 捕捉点击昆虫时，弹性盒子居中布局 */
+.insect {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  /* 使用绝对定位，绝对定位于其父元素，且设置了移动和移动的效果 */
+  position: absolute;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+/* 昆虫被点击捕捉后，移动位置缩小到0，不可见 */
+.insect.caught {
+  transform: translate(-50%, -50%) scale(0);
+}
+/* 昆虫图片的大小 */
+.insect img {
+  width: 100px;
+  height: 100px;
+}

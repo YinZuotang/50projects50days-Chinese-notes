@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+/* 根选择器，匹配html，定义 原始颜色和次要颜色 两个属性的颜色， */
+:root {
+  --primary-color: #22254b;
+  --secondary-color: #373b69;
+}
+
+* {
+  box-sizing: border-box;
+}
+/* body的背景色、字体、外边距 */
+body {
+  background-color: var(--primary-color);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+/* header的内边距、弹性盒子、子元素在主轴的对齐方式为flex-end，项目将会被对齐到主轴的末端。背景色 */
+header {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--secondary-color);
+}
+/* 搜索输入框 */
+.search {
+  /* 无背景色 */
+  background-color: transparent;
+  /* 边框 */
+  border: 2px solid var(--primary-color);
+  /* 圆角 */
+  border-radius: 50px;
+  /* 字体字号 */
+  font-family: inherit;
+  font-size: 1rem;
+  /* 内边距 */
+  padding: 0.5rem 1rem;
+  color: #fff;
+}
+/* 搜索栏的占位符文字颜色 */
+.search::placeholder {
+  color: #7378c5;
+}
+/* 搜索栏聚焦时的外框线、背景色 */
+.search:focus {
+  outline: none;
+  background-color: var(--primary-color);
+}
+/* 主题部门弹性盒子、wrap表示子元素在必要时可以换行到新的行中、主轴上居中 */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* 电影的宽、内边距、背景色、边框阴影、相对定位、隐藏溢出、边框圆角 */
+.movie {
+  width: 300px;
+  margin: 1rem;
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+}
+/* 图片宽度 */
+.movie img {
+  width: 100%;
+}
+/* 电影信息的颜色、弹性盒子、子元素在交叉轴居中、 */
+.movie-info {
+  color: #eee;
+  display: flex;
+  align-items: center;
+  /* 子元素均匀分布 */
+  justify-content: space-between;
+  /* 子元素间的间隙 3.2px */
+  gap:0.2rem;
+  /* 内边距 */
+  padding: 0.5rem 1rem 1rem;
+  /* 文本字符之间的间隔 */
+  letter-spacing: 0.5px;
+}
+/* h3标题距离顶部的外边距距离 */
+.movie-info h3 {
+  margin-top: 0;
+}
+/* span标签的样式，背景色、内边距、圆角、字体加粗 */
+.movie-info span {
+  background-color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-weight: bold;
+}
+/* 定义绿、黄、红三个span标签 */
+.movie-info span.green {
+  color: lightgreen;
+}
+
+.movie-info span.orange {
+  color: orange;
+}
+
+.movie-info span.red {
+  color: red;
+}
+/* overview部分的样式，背景色、内边距、绝对定位等 */
+.overview {
+  background-color: #fff;
+  padding: 2rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  max-height: 100%;
+  /* overview沿着Y轴移动101%，也就是移动出去*/
+  transform: translateY(101%);
+  overflow-y: auto;
+  transition: transform 0.3s ease-in;
+}
+/* 被悬停聚焦时，沿着Y轴移动0，也就是不移动，显示出来 */
+.movie:hover .overview {
+  transform: translateY(0);
+}

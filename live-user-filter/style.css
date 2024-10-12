@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* 引入字体，定义全部元素的box-sizing效果 */
+* {
+  box-sizing: border-box;
+}
+/* body的背景色、字体、弹性盒子居中等 */
+body {
+  background-color: #f8f9fd;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 容器的圆角、阴影效果 */
+.container {
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 300px;
+}
+/* 标题外边距为0 */
+.title {
+  margin: 0;
+}
+/* 提交标题 文本 的布局为内联块布局，可见度为0.8 */
+.subtitle {
+  display: inline-block;
+  margin: 5px 0 20px;
+  opacity: 0.8;
+}
+/* header的背景色、字体颜色、内边距 */
+.header {
+  background-color: #3e57db;
+  color: #fff;
+  padding: 30px 20px;
+}
+/* input按钮的背景色、边框、圆角效果、字体颜色和尺寸、内边距、宽度 */
+.header input {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 0;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 15px;
+  width: 100%;
+}
+/* 聚焦按钮时，无轮廓线 */
+.header input:focus {
+  outline: none;
+}
+/* 用户列表背景色、无列表的图标、内外编剧、最大高度、 在Y轴方向溢出时为auto效果*/
+.user-list {
+  background-color: #fff;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+/* 列表单元格弹性盒子 */
+.user-list li {
+  display: flex;
+  padding: 20px;
+}
+/* 头像图片圆角、铺满、高和宽 */
+.user-list img {
+  border-radius: 50%;
+  object-fit: cover;
+  height: 50px;
+  width: 50px;
+}
+/* 用户信息左外边距 */
+.user-list .user-info {
+  margin-left: 10px;
+}
+/* 标题的上右下左边距分别0 0 10 0 */
+.user-list .user-info h4 {
+  margin: 0 0 10px;
+}
+/* p标签字号 */
+.user-list .user-info p {
+  font-size: 12px;
+}
+/* :not(:last-of-type)对单元格除了最后一个元素之外的所有元素设置样式 */
+.user-list li:not(:last-of-type) {
+  /* 元素底部边框1px,白色实线 */
+  border-bottom: 1px solid #eee;
+}
+/* 单元格隐藏 */
+.user-list li.hide {
+  display: none;
+}

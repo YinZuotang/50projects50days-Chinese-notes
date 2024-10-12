@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* 引入字体 */
+/* 盒子布局为border-box */
+* {
+  box-sizing: border-box;
+}
+/*  定义body的字体、flex布局并居中，高为窗口铺满，隐藏溢出 */
+/* 外边距0，背景图从中心点放置，背景图铺满元素， 切换效果花费0.4s */
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background-position: center center;
+  background-size: cover;
+  transition: 0.4s;
+}
+/* 定义了before伪类，使body背景中有一个黑色透明效果 */
+body::before {
+  content: '';
+  /* 绝对定位，并且x-index=-1，元素会被放置在其父元素的后面 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+/* 滑块容器的样式 */
+.slider-container {
+  /* 盒子的内外阴影效果 */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  /* 容器的宽高和定位等 */
+  height: 70vh;
+  width: 70vw;
+  position: relative;
+  overflow: hidden;
+}
+/* 设置图片内容相对父元素slider-container绝对定位 */
+.slide {
+  /* 起始另外四个背景图不可见 */
+  opacity: 0;
+  height: 100vh;
+  width: 100vw;
+  background-position: center center;
+  background-size: cover;
+  /* 绝对定位 */
+  position: absolute;
+  /* 设置向上和向左移动视窗的15%*/
+  top: -15vh;
+  left: -15vw;
+  transition: 0.4s ease;
+  z-index: 1;
+}
+/* 第一个可见 */
+.slide.active {
+  opacity: 1;
+}
+/* 两个按钮的基本样式 */
+.arrow {
+  /* 固定定位 */
+  position: fixed;
+  /* 透明背景 */
+  background-color: transparent;
+  /* 按钮白色 */
+  color: #fff;
+  /* 外边距 */
+  padding: 20px;
+  /* 符号尺寸 */
+  font-size: 30px;
+  /* 边框样式 */
+  border: 2px solid orange;
+  /* 垂直居中 */
+  top: 50%;
+  transform: translateY(-50%);
+  /* pointer光标样式 */
+  cursor: pointer;
+}
+/* 鼠标聚集在箭头时，无轮廓线 */
+.arrow:focus {
+  outline: 0;
+}
+/* 左右两侧箭头的偏移的位置*/
+.left-arrow {
+  left: calc(15vw - 65px);
+}
+
+.right-arrow {
+  right: calc(15vw - 65px);
+}

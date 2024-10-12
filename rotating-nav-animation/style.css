@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* body的字体，背景色，文字颜色等 */
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #333;
+  color: #222;
+  overflow-x: hidden;
+  margin: 0;
+}
+/* 容器的背景色 */
+.container {
+  background-color: #fafafa;
+  /* 旋转时从顶部和左侧，也就是左上角进行旋转 */
+  transform-origin: top left;
+  transition: transform 0.5s linear;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 50px;
+}
+/* 展示导航栏，逆时针旋转20度 */
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+/* 圆圈的内容时固定位置 */
+.circle-container {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+}
+/* 圆圈背景色，宽高，圆角等效果 */
+.circle {
+  background-color: #ff7979;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  /* 相对定位，其按钮相对于其绝对定位 */
+  position: relative;
+  transition: transform 0.5s linear;
+}
+/* 圆圈旋转70度 */
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+/* 按钮绝对定位，距离父元素顶部和左侧的边缘都是50%的自身 */
+.circle button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  color: #fff;
+}
+
+.circle button:focus {
+  outline: none;
+}
+/* 打开按钮，左侧边缘距离其父元素的左侧边缘60% */
+.circle button#open {
+  left: 60%;
+}
+/*  */
+.circle button#close {
+  top: 60%;
+  /* 将按钮旋转 90 度，设置旋转的基点为按钮的左上角  */
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+.container.show-nav + nav li {
+  /*  li 元素沿 X 轴平移 0 单位，即不移动，并且延迟过渡0.3s */
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+/* 导航栏固定，距离底部40px */
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+}
+/* 列表无标注符号 */
+nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+/* 单元格都是大写，白色字体 */
+nav ul li {
+  text-transform: uppercase;
+  color: #fff;
+  margin: 40px 0;
+  /*  */
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in;
+}
+/* 单元格文本的字号，右侧外边距 */
+nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+/* li + li表示有两个li1和li2，对li2进行设置 */
+nav ul li + li {
+  margin-left: 15px;
+  /* 第二个向右移动其自身宽度的150% */
+  transform: translateX(-150%);
+}
+
+nav ul li + li + li {
+  margin-left: 30px;
+  /* 第三个li向右移动自身宽度的200% */
+  transform: translateX(-200%);
+}
+/* a标签的颜色，文本无修饰 */
+nav a{
+  color: #fafafa;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+/* 导航栏悬停时，颜色和加粗 */
+nav a:hover {
+  color: #FF7979;
+  font-weight: bold;
+}
+/* 内容图片的最大宽度 */
+.content img {
+  max-width: 100%;
+}
+/* 内容最大宽度和外边距 */
+.content {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+/* 内容的标题等 */
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: #555;
+  font-style: italic;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.5;
+}

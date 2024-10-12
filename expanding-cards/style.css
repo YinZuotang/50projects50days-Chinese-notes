@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+/* 设置布局为border-box */
+* {
+  box-sizing: border-box;
+}
+/* 设置body的字体、弹性盒子居中布局等 */
+body {
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 大的容器也为弹性盒子，高度为90%页面高度 */
+.container {
+  display: flex;
+  width: 90vw;
+}
+/* 五个面板的样式 */
+.panel {
+  /* 背景的尺寸为全覆盖 */
+  background-size: cover;
+  /* 居中 */
+  background-position: center;
+  /* 不重复 */
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  /* flex设置为0.5，也就是flex-shrink为0.5，收缩到0.5*/
+  flex: 0.5;
+  margin: 10px;
+  /* 相对定位 */
+  position: relative;
+  -webkit-transition: all 700ms ease-in;
+}
+/* 标题相对于面板是绝对定位 */
+.panel h3 {
+  font-size: 24px;
+  /* 子元素绝对定位 */
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+/* 被激活的面板的flex设置为5 */
+/* 其实是设置 flex-grow 为5，而 flex-shrink 和 flex-basis 都默认为0 */
+/* 当容器有额外空间时，元素将按照5的比例增长 */
+.panel.active {
+  flex: 5;
+}
+/* 被激活的面板的标题可见 */
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+/* 媒体查询（Media Query），它用于宽度小于480px下应用CSS样式 */
+@media (max-width: 480px) {
+  /* 网页宽度小于480时，修改容器的宽度为100%窗口宽度 */
+  .container {
+    width: 100vw;
+  }
+  /* 类名为 .panel 的第四个和第五个子元素，并在视口宽度小于或等于480像素时将它们隐藏。
+  :nth-of-type() 是一个CSS伪类，用于选择其父元素中特定类型的第n个子元素。 */
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}

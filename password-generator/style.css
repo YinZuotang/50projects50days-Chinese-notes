@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* body的背景色、字体和颜色、弹性盒子列为主轴，水平和垂直居中 */
+body {
+  background-color: #3b3b98;
+  color: #fff;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  padding: 10px;
+  margin: 0;
+}
+/* 标题的样式 */
+h2 {
+  margin: 10px 0 20px;
+  text-align: center;
+}
+/* 生成器大的容器的背景色、阴影，内边韩剧、宽度，最大宽度 */
+.container {
+  background-color: #23235b;
+  box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  width: 350px;
+  max-width: 100%;
+}
+/* 结果容器的背景色、弹性盒子，左对齐，子元素水平居中，相对定位 */
+.result-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  font-size: 18px;
+  letter-spacing: 1px;
+  padding: 12px 10px;
+  height: 50px;
+  width: 100%;
+}
+/* 结果 */
+.result-container #result {
+  /* 单词太长而无法在一行内显示时，会在单词内部断开，避免溢出容器 */
+  word-wrap: break-word;
+  /* calc()函数计算元素的最大宽度，其父元素宽度的100%减去40像素。 */
+  max-width: calc(100% - 40px);
+  /* 当元素的内容高度超过其指定的高度时，垂直方向上会显示滚动条 */
+  overflow-y: scroll;
+  height: 100%;
+}
+/* 设置滚动条的样式 */
+#result::-webkit-scrollbar {
+  width: 1rem;
+}
+/* 结果容器里面的按钮，绝对定位 */
+.result-container .btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+}
+/* 所有的按钮都没边框，背景色、字体颜色、内边距、指针 */
+.btn {
+  border: none;
+  background-color: #3b3b98;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+/* 大的按钮是块元素，单独一行 */
+.btn-large {
+  display: block;
+  width: 100%;
+}
+/* 设置部分都是弹性盒子， */
+.setting {
+  display: flex;
+  /* 沿着主轴，两端对齐 */
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+}

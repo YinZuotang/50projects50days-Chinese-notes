@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* 一个@import规则，用于从Google Fonts导入Roboto字体 */
+/* 通用选择器*，将box-sizing属性设置为border-box。元素的宽度和高度会包括边框border和内边距padding，避免在布局中出现意外的尺寸问题。 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* font-family设置为Roboto字体，如果Roboto字体无法加载，则会回退到无衬线字体。 */
+  font-family: 'Roboto', sans-serif;
+  /* 将body元素设置为一个弹性容器 */
+  display: flex;
+  /* 定义了弹性容器的主轴方向为垂直方向 */
+  flex-direction: column;
+  /* 将弹性容器内的项目在水平和垂直方向上居中对齐。 */
+  align-items: center;
+  justify-content: center;
+  /* 将body的高度设置为视口高度的100% */
+  height: 100vh;
+  /* 避免溢出，隐藏超出的部分 */
+  overflow: hidden;
+  /* 移除了body元素的外边距 */
+  margin: 0;
+}

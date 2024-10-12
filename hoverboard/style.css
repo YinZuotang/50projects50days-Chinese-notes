@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+/* body的背景色,弹性盒子居中布局等 */
+body {
+  background-color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* 容器也是弹性盒子居中 */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 如果Flex容器的子元素超出了容器的宽度，将会换行显示,否则子元素在一行*/
+  flex-wrap: wrap;
+  max-width: 400px;
+}
+/* JS创建的square的样式 */
+.square {
+  /* 背景色,阴影效果,宽高外边距,切换效果 */
+  background-color: #1d1d1d;
+  box-shadow: 0 0 2px #000;
+  height: 16px;
+  width: 16px;
+  margin: 2px;
+  /* 持续2s,先慢后快又慢的淡入淡出 */
+  transition: 2s ease;
+}
+/* square被鼠标悬停时 */
+.square:hover {
+  /*  过渡持续事件0s,立马过渡*/
+  transition-duration: 0s;
+}

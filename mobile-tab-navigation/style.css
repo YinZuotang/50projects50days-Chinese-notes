@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* body的背景色、字体、弹性盒子居中布局等 */
+body {
+  background-color: rgba(155, 89, 182, 0.7);
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+/* 手机容器相对定位，隐藏溢出的部分，设置边框、圆角、宽和高 */
+.phone {
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #eee;
+  border-radius: 15px;
+  height: 600px;
+  width: 340px;
+}
+/* 手机的内容 */
+.phone .content {
+  /* 不可见 */
+  opacity: 0;
+  /* 完全覆盖 */
+  object-fit: cover;
+  /* 绝对定位 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* 内容的高度是其父元素，也就是手机高度-60px */
+  height: calc(100% - 60px);
+  width: 100%;
+  transition: opacity 0.4s ease;
+}
+/* 可见的那一页图被设置可见性为1 */
+.phone .content.show {
+  opacity: 1;
+}
+/* 导航栏，绝对定位，距离下部和左侧0px*/
+nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-top: -5px;
+  width: 100%;
+}
+/* ul的背景色，弹性盒子，无样式符号 */
+nav ul {
+  background-color: #fff;
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  height: 60px;
+}
+/* 单元格的颜色，光标指针效果， */
+nav li {
+  color: #777;
+  cursor: pointer;
+  /* 所有的li元素平分可用空间 */
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+}
+/* P标签的字体、外边距 */
+nav ul li p {
+  font-size: 12px;
+  margin: 2px 0;
+}
+/* 单元格被悬停或激活时 */
+nav ul li:hover,
+nav ul li.active {
+  color: #8e44ad;
+}

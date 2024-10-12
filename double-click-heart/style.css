@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+* {
+  box-sizing: border-box;
+}
+/* 定义body的字号、文字居中等常规设置 */
+body {
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  overflow: hidden;
+  margin: 0;
+}
+/* 定义三级标题无底部外边距，文本居中 */
+h3 {
+  margin-bottom: 0;
+  text-align: center;
+}
+/* 定义记录比心次数的部分为块级元素，占用一行，底部外边距为20 */
+small {
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+}
+/* 标题中的心为红色 */
+.fa-heart {
+  color: red;
+}
+/* 设置宽高，背景图，自动外边距等，设置相对定位以便让双击比心时，心形绝对定位。此外，设置了阴影效果等*/
+.loveMe {
+  height: 440px;
+  width: 300px;
+  background: url('https://images.unsplash.com/photo-1504215680853-026ed2a45def?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80')
+    no-repeat center center/cover;
+  margin: auto;
+  cursor: pointer;
+  max-width: 100%;
+  position: relative;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+}
+/*loveMe下的fa-heart绝对定位于loveMe,动画grow线性变化0.6s, */
+.loveMe .fa-heart {
+  position: absolute;
+  /* grow动画放大10倍，之后又缩小到0 */
+  animation: grow 0.6s linear;
+  /* translate(-50%, -50%)将元素向左和向上移动自身宽度和高度的50%，将元素定位到其包含块的中心。scale(0)将元素的宽度和高度缩放到0 */
+  transform: translate(-50%, -50%) scale(0);
+}
+/* 将元素移动到中心并且放大10倍，不透明度为0起到透明的效果 */
+@keyframes grow {
+  to {
+    transform: translate(-50%, -50%) scale(10);
+    opacity: 0;
+  }
+}
